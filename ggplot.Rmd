@@ -1,0 +1,83 @@
+---
+title: "ggplot"
+author: "Syed Faraz Ali"
+date: "9/22/2018"
+output: html_document
+---
+
+## Loading the tidyverse packages 
+
+```{r message = FALSE}
+library(dplyr)
+library(purrr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(tibble)
+```
+
+## The mpg data frame 
+
+If we need to be explicit about where a function (or dataset) comes from, we'll use the special form package::function(). For example, ggplot2::ggplot() tells you explicitly that we're using the ggplot() function from the ggplot2 package.
+```{r}
+ggplot2 :: mpg 
+
+mpg
+
+```
+
+## Creating a ggplot 
+
+```{r}
+ggplot(data = mpg) + 
+        geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+
+Let's turn this code into a reusable template for making graphs with ggplot2. To make a graph, replace the bracketed sections in the code below with a dataset, a geom function, or a collection of mappings.
+
+```{r eval = FALSE}
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+## Practicing ggplot
+
+Run ggplot(data = mpg). What do you see?
+
+```{r}
+ggplot(data = mpg)
+```
+
+
+How many rows are in mpg? How many columns?
+
+```{r}
+dim(mpg)
+```
+
+
+What does the drv variable describe? Read the help for ?mpg to find out.
+
+```{r}
+help(mpg)
+```
+
+
+Make a scatterplot of hwy vs cyl.
+
+```{r}
+ggplot(data = mpg) + 
+        geom_point(mapping = aes(x = cyl, y = hwy))
+```
+
+
+
+
+What happens if you make a scatterplot of class vs drv? Why is the plot not useful?
+
+
+
+
+
+
